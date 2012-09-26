@@ -7,7 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
+#import <RestKit/JSONKit.h>
+#import <RestKit/CoreData.h>
 
-@interface ViewController : UIViewController
+#import "User.h"
 
+#import "ListHelper.h"
+#import "TopicCell.h"
+
+@interface ViewController : UIViewController <RKRequestDelegate, UITableViewDataSource>
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
+
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
+
+- (IBAction)gotoSettings:(id)sender;
 @end
