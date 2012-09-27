@@ -14,6 +14,13 @@
 		0501C4AC16019FA000F7BF2A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0501C4AB16019FA000F7BF2A /* libz.dylib */; };
 		052BD67316135411004709F8 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 052BD67216135411004709F8 /* Icon@2x.png */; };
 		052BD67516135416004709F8 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 052BD67416135416004709F8 /* Icon.png */; };
+		052BD67916138D74004709F8 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 052BD67816138D73004709F8 /* CommentsViewController.m */; };
+		052BD67B16138E4F004709F8 /* plain_nav_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 052BD67A16138E4F004709F8 /* plain_nav_bar.png */; };
+		052BD67D1613914A004709F8 /* texture_navbar_comments_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 052BD67C1613914A004709F8 /* texture_navbar_comments_bg.png */; };
+		052BD6801613EE85004709F8 /* CommentsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 052BD67F1613EE85004709F8 /* CommentsDetailViewController.m */; };
+		052BD68F16140142004709F8 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 052BD68A16140142004709F8 /* UIImage+Alpha.m */; };
+		052BD69016140142004709F8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 052BD68C16140142004709F8 /* UIImage+Resize.m */; };
+		052BD69116140142004709F8 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 052BD68E16140142004709F8 /* UIImage+RoundedCorner.m */; };
 		05AE41441602B17700707288 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AE413A1602B17700707288 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		05AE41471602B17700707288 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AE41401602B17700707288 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		05AE41481602B17700707288 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AE41421602B17700707288 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -265,6 +272,18 @@
 		0501C4AE1601A15E00F7BF2A /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		052BD67216135411004709F8 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		052BD67416135416004709F8 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		052BD67716138D73004709F8 /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
+		052BD67816138D73004709F8 /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
+		052BD67A16138E4F004709F8 /* plain_nav_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plain_nav_bar.png; sourceTree = "<group>"; };
+		052BD67C1613914A004709F8 /* texture_navbar_comments_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture_navbar_comments_bg.png; sourceTree = "<group>"; };
+		052BD67E1613EE85004709F8 /* CommentsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsDetailViewController.h; sourceTree = "<group>"; };
+		052BD67F1613EE85004709F8 /* CommentsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsDetailViewController.m; sourceTree = "<group>"; };
+		052BD68916140142004709F8 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		052BD68A16140142004709F8 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		052BD68B16140142004709F8 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		052BD68C16140142004709F8 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		052BD68D16140142004709F8 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		052BD68E16140142004709F8 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		05930B4315FB3DBC00062703 /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Topic.h; sourceTree = "<group>"; };
 		05930B4415FB3DBC00062703 /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Topic.m; sourceTree = "<group>"; };
 		05930B4615FB439C00062703 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -922,6 +941,10 @@
 				05B9A72A15FA7BD7001B59FA /* Frameworks */,
 				05CD34F61608289600F0DD3F /* CommentNavTableViewViewController.h */,
 				05CD34F71608289600F0DD3F /* CommentNavTableViewViewController.m */,
+				052BD67716138D73004709F8 /* CommentsViewController.h */,
+				052BD67816138D73004709F8 /* CommentsViewController.m */,
+				052BD67E1613EE85004709F8 /* CommentsDetailViewController.h */,
+				052BD67F1613EE85004709F8 /* CommentsDetailViewController.m */,
 			);
 			path = MightBuy;
 			sourceTree = "<group>";
@@ -983,11 +1006,13 @@
 		05B9A7CB15FB0198001B59FA /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				052BD67A16138E4F004709F8 /* plain_nav_bar.png */,
 				05CD34E31606B31C00F0DD3F /* texture_navigation_bar_detail.png */,
 				05D784761600255A006B0954 /* silver_gradient.png */,
 				05E9110C160021CE00A16B34 /* red_gradient.png */,
 				05B9A7CC15FB0198001B59FA /* texture_navigation_bar.png */,
 				05D7847B16002855006B0954 /* texture_navigation_bar_login.png */,
+				052BD67C1613914A004709F8 /* texture_navbar_comments_bg.png */,
 			);
 			path = Textures;
 			sourceTree = "<group>";
@@ -1031,6 +1056,12 @@
 		05CD34E51606D63700F0DD3F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				052BD68916140142004709F8 /* UIImage+Alpha.h */,
+				052BD68A16140142004709F8 /* UIImage+Alpha.m */,
+				052BD68B16140142004709F8 /* UIImage+Resize.h */,
+				052BD68C16140142004709F8 /* UIImage+Resize.m */,
+				052BD68D16140142004709F8 /* UIImage+RoundedCorner.h */,
+				052BD68E16140142004709F8 /* UIImage+RoundedCorner.m */,
 				05AE41E61602B47E00707288 /* Reachability.h */,
 				05AE41ED1602B60000707288 /* Reachability.m */,
 				05AE41991602B44F00707288 /* ASIHTTPRequest */,
@@ -1195,6 +1226,8 @@
 				05CD34E41606B31C00F0DD3F /* texture_navigation_bar_detail.png in Resources */,
 				052BD67316135411004709F8 /* Icon@2x.png in Resources */,
 				052BD67516135416004709F8 /* Icon.png in Resources */,
+				052BD67B16138E4F004709F8 /* plain_nav_bar.png in Resources */,
+				052BD67D1613914A004709F8 /* texture_navbar_comments_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1311,6 +1344,11 @@
 				05CD34F21608208F00F0DD3F /* HorizontalDismiss.m in Sources */,
 				05CD34F5160827DF00F0DD3F /* CommentNavViewController.m in Sources */,
 				05CD34F81608289700F0DD3F /* CommentNavTableViewViewController.m in Sources */,
+				052BD67916138D74004709F8 /* CommentsViewController.m in Sources */,
+				052BD6801613EE85004709F8 /* CommentsDetailViewController.m in Sources */,
+				052BD68F16140142004709F8 /* UIImage+Alpha.m in Sources */,
+				052BD69016140142004709F8 /* UIImage+Resize.m in Sources */,
+				052BD69116140142004709F8 /* UIImage+RoundedCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
