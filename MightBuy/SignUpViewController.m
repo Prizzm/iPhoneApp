@@ -90,6 +90,8 @@
             fullName = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, 300, 43)];
             [fullName setPlaceholder:@"Full Name"];
             [fullName addTarget:self action:@selector(checkForSubmitButtonEnablement:) forControlEvents:UIControlEventEditingChanged];
+            [fullName addTarget:self action:@selector(gotoEmail) forControlEvents:UIControlEventEditingDidEndOnExit];
+            [fullName setReturnKeyType:UIReturnKeyNext];
             [cell addSubview:fullName];
             break;
             
@@ -98,6 +100,8 @@
             [emailField setPlaceholder:@"Email Address"];
             [emailField setKeyboardType:UIKeyboardTypeEmailAddress];
             [emailField addTarget:self action:@selector(checkForSubmitButtonEnablement:) forControlEvents:UIControlEventEditingChanged];
+            [emailField addTarget:self action:@selector(gotoPassword) forControlEvents:UIControlEventEditingDidEndOnExit];
+            [emailField setReturnKeyType:UIReturnKeyNext];
             [cell addSubview:emailField];
             break;
 
@@ -106,6 +110,8 @@
             [passwordField setPlaceholder:@"Password"];
             [passwordField setSecureTextEntry:YES];
             [passwordField addTarget:self action:@selector(checkForSubmitButtonEnablement:) forControlEvents:UIControlEventEditingChanged];
+            [passwordField addTarget:self action:@selector(submit) forControlEvents:UIControlEventEditingDidEndOnExit];
+            [passwordField setReturnKeyType:UIReturnKeyJoin];
             [cell addSubview:passwordField];
             break;
     }
@@ -247,6 +253,14 @@
         [detailViewController setAuthToken:authToken];
         [detailViewController setParent:self];
     }
+}
+
+-(void)gotoEmail {
+    [emailField becomeFirstResponder];
+}
+
+-(void)gotoPassword {
+    [passwordField becomeFirstResponder];
 }
 
 @end

@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *submitButton;
 @property (nonatomic, retain) UITextField *productName;
 @property (nonatomic, retain) UITextField *productPrice;
+@property (nonatomic, retain) UISwitch *haveSwitch;
 
 @property (nonatomic, retain) UIImage *image;
 @property (nonatomic, retain) NSString *imageURL;

@@ -11,7 +11,7 @@
 
 #import "TabBarViewController.h"
 
-@interface SignUpViewController : UITableViewController <RKRequestDelegate>
+@interface EmailLoginViewController : UITableViewController <RKRequestDelegate>
 @property (nonatomic, retain) UITextField *fullName;
 @property (nonatomic, retain) UITextField *emailField;
 @property (nonatomic, retain) UITextField *passwordField;

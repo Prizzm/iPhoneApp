@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 Makrr. All rights reserved.
 //
 
-#import "SignUpViewController.h"
+#import "EmailLoginViewController.h"
 
-@interface SignUpViewController ()
+@interface EmailLoginViewController ()
 
 @end
 
-@implementation SignUpViewController
+@implementation EmailLoginViewController
 @synthesize emailField;
 @synthesize passwordField;
 @synthesize fullName;
@@ -31,7 +31,7 @@
     [super viewDidAppear:animated];
     
     [[[self navigationController] navigationBar] setBackgroundImage:[[UIImage imageNamed:@"plain_nav_bar.png"] imageByScaleingToSize:CGSizeMake(320, 44)] forBarMetrics:UIBarMetricsDefault];
-    [[self navigationItem] setTitle:@"Sign Up"];
+    [[self navigationItem] setTitle:@"Sign In With Email"];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [RKClient clientWithBaseURLString:@"https://www.mightbuy.it"];
 }
@@ -48,7 +48,7 @@
     [[self tableView] setBackgroundView:bgView];
     
     UIBarButtonItem *bbir = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(submit)];
-    [bbir setTitle:@"Join"];
+    [bbir setTitle:@"Sign In"];
     
     [[self navigationItem] setRightBarButtonItem:bbir];
     
@@ -77,7 +77,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,26 +88,23 @@
     switch ([indexPath row]) {
         case 0:
             fullName = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, 300, 43)];
-            [fullName setPlaceholder:@"Full Name"];
+            [fullName setPlaceholder:@"Username"];
             [fullName addTarget:self action:@selector(checkForSubmitButtonEnablement:) forControlEvents:UIControlEventEditingChanged];
+            [fullName setReturnKeyType:UIReturnKeyNext];
+            [fullName addTarget:self action:@selector(gotoPassword) forControlEvents:UIControlEventEditingDidEndOnExit];
             [cell addSubview:fullName];
             break;
             
         case 1:
             emailField = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, 300, 43)];
-            [emailField setPlaceholder:@"Email Address"];
-            [emailField setKeyboardType:UIKeyboardTypeEmailAddress];
+            [emailField setPlaceholder:@"Password"];
+            [emailField setSecureTextEntry:YES];
+            [emailField setReturnKeyType:UIReturnKeyGo];
             [emailField addTarget:self action:@selector(checkForSubmitButtonEnablement:) forControlEvents:UIControlEventEditingChanged];
+            [emailField addTarget:self action:@selector(submit) forControlEvents:UIControlEventEditingDidEndOnExit];
             [cell addSubview:emailField];
             break;
 
-        case 2:
-            passwordField = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, 300, 43)];
-            [passwordField setPlaceholder:@"Password"];
-            [passwordField setSecureTextEntry:YES];
-            [passwordField addTarget:self action:@selector(checkForSubmitButtonEnablement:) forControlEvents:UIControlEventEditingChanged];
-            [cell addSubview:passwordField];
-            break;
     }
     
     return cell;
@@ -176,25 +173,7 @@
 -(void)submit {
     NSLog(@"sub");
     
-    // Create Variables
-    NSDictionary *rootDict;
-    NSDictionary *dataDict;
-    
-    // Check if price is empty
-    if ([self stringIsEmpty:fullName.text] || [self stringIsEmpty:emailField.text] || [self stringIsEmpty:passwordField.text]) {
-        // If so post data without price
-        NSLog(@"invalid");
-    } else {
-        // If it isn't empty, post data with price
-        dataDict = [NSDictionary dictionaryWithObjects:@[emailField.text, passwordField.text, fullName.text] forKeys:@[@"email", @"password", @"name"]];
-    }
-    
-    // Create topic dictionary to hold the data
-    rootDict = [NSDictionary dictionaryWithObjects:@[dataDict] forKeys:@[@"user"]];
-
-    NSLog(@"rd: %@", rootDict);
-    [[RKClient sharedClient] post:@"/users.json" params:rootDict delegate:self];
-//    [self loginWithUN:emailField.text andPW:passwordField.text];
+    [self loginWithUN:fullName.text andPW:emailField.text];
 }
 
 -(void)loginWithUN:(NSString *)username andPW:(NSString *)password {
@@ -224,16 +203,20 @@
     // Parse the response using the parser
     NSDictionary *d = [parser objectWithData:[[response bodyAsString] dataUsingEncoding:NSUTF8StringEncoding]];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[d objectForKey:@"authentication_token"] forKey:@"auth_token"];
-    
-    [self setAuthToken:[d objectForKey:@"authentication_token"]];
-    
-    int64_t delayInSeconds = 1.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self performSegueWithIdentifier:@"gotoMainApp" sender:self];
-    });
-    
+    if ([d objectForKey:@"message"]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[d objectForKey:@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        [defaults setObject:[d objectForKey:@"token"] forKey:@"auth_token"];
+        
+        [self setAuthToken:[d objectForKey:@"token"]];
+        
+        int64_t delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self performSegueWithIdentifier:@"gotoMainApp" sender:self];
+        });
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -247,6 +230,15 @@
         [detailViewController setAuthToken:authToken];
         [detailViewController setParent:self];
     }
+}
+
+-(void)gotoPassword {
+    [self gotoField:emailField];
+}
+
+             
+-(void)gotoField:(UITextField *)dest {
+    [dest becomeFirstResponder];
 }
 
 @end
