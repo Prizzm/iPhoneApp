@@ -13,6 +13,8 @@
 @end
 
 @implementation CommentsViewController
+@synthesize navBar;
+@synthesize topic;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,8 +27,13 @@
 
 - (void)viewDidLoad
 {
+    [navBar setBackgroundImage:[[UIImage imageNamed:@"texture_navbar_comments_bg.png"] imageByScaleingToSize:CGSizeMake(320, 44)] forBarMetrics:UIBarMetricsDefault];
+
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated {
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,4 +47,15 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)viewDidUnload {
+    [self setNavBar:nil];
+    [super viewDidUnload];
+}
+- (IBAction)goBack:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [[segue destinationViewController] setTopic:topic];
+}
 @end

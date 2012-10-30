@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Libraries.h"
+#import "Topic.h"
 
 @interface CommentNavViewController : UINavigationController
+@property (strong, nonatomic) Topic *topic;
 
 @end

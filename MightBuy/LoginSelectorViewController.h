@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Libraries.h"
 
 @interface LoginSelectorViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIButton *signUpButton;
+@property (strong, nonatomic) IBOutlet UIButton *signInButton;
 
 @end

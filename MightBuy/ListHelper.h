@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <RestKit/CoreData.h>
+#import "Libraries.h"
 
 #import "User.h"
+#import "Topic.h"
 
 @interface ListHelper : NSObject
 
-+(void)insertNewRecordFields:(NSManagedObject *)userObj andData:(NSDictionary *)d andAuthToken:(NSString *)authToken;
-+(void)updateUserFields:(User *)user andData:(NSDictionary *)d andAuthToken:(NSString *)authToken;
++(void)insertNewRecordFields:(NSManagedObject *)userObj andData:(NSDictionary *)d andAuthToken:(NSString *)authToken andContect:(NSManagedObjectContext *)context;
++(void)updateUserFields:(User *)user andData:(NSDictionary *)d andAuthToken:(NSString *)authToken andContect:(NSManagedObjectContext *)context;
++(void)deleteUsersWithContext:(NSManagedObjectContext *)context;
++(void)deleteTopicsWithContext:(NSManagedObjectContext *)context;
+
 @end

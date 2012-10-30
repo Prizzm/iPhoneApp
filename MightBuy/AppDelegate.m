@@ -43,4 +43,23 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)application 
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication 
+         annotation:(id)annotation 
+{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *param in [[[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] componentsSeparatedByString:@"&"]) {
+        NSArray *elts = [param componentsSeparatedByString:@"="];
+        if([elts count] < 2) continue;
+        [params setObject:[elts objectAtIndex:1] forKey:[elts objectAtIndex:0]];
+    }
+    
+    NSURL *target = [NSURL URLWithString:[params objectForKey:@"target_url"]];
+    
+    NSLog(@"url: %@", [[target path] stringByReplacingOccurrencesOfString:@"/topics/" withString:@""]);
+    
+    return [FBSession.activeSession handleOpenURL:url];
+}
+
 @end

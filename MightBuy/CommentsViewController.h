@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Libraries.h"
+#import "Topic.h"
+#import "UIPView.h"
 
 @interface CommentsViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (strong, nonatomic) Topic *topic;
+
+- (IBAction)goBack:(id)sender;
 
 @end

@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Libraries.h"
+#import "TabBarViewController.h"
 
-@interface LoginTypeSelectorViewController : UIViewController
+@interface LoginTypeSelectorViewController : UIViewController <RKRequestDelegate, SA_OAuthTwitterControllerDelegate>
+@property (nonatomic, retain) SA_OAuthTwitterEngine *engine;
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (retain, nonatomic) NSString *authToken;
+@property (nonatomic, retain) UIViewController *parent;
+- (IBAction)loginWithFacebook:(id)sender;
+- (IBAction)loginWithTwitter:(id)sender;
 
 @end

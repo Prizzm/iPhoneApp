@@ -13,6 +13,18 @@
 @end
 
 @implementation ProductDetailViewController
+@synthesize navBar;
+@synthesize productName;
+@synthesize productImage;
+@synthesize productPrice;
+
+@synthesize productNameLabel;
+@synthesize productImageView;
+@synthesize ProductUIImageView;
+@synthesize productPriceLabel;
+@synthesize commentsButtonContainer;
+@synthesize mainScroll;
+@synthesize topic;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,6 +37,22 @@
 
 - (void)viewDidLoad
 {
+    [[self navBar] setBackgroundImage:[[UIImage imageNamed:@"texture_navigation_bar_detail.png"] imageByScaleingToSize:CGSizeMake(320, 43)] forBarMetrics:UIBarMetricsDefault];
+    [[[self navBar] topItem] setTitle:productName];
+    
+    [[self productNameLabel] setText:productName];
+    [[self productNameLabel] setFont:[UIFont fontWithName:@"Museo-300" size:15]];
+    
+    [[self productPriceLabel] setText:productPrice];
+    [[self productPriceLabel] setFont:[UIFont fontWithName:@"Museo-300" size:15]];
+    
+    [[self ProductUIImageView] setImage:productImage];
+    if ([[UIScreen mainScreen] bounds].size.height == 568.0) {
+        [[self mainScroll] setContentSize:CGSizeMake(320, 474)];
+    } else {
+        [[self mainScroll] setContentSize:CGSizeMake(320, 400)];
+    }
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
@@ -38,6 +66,32 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)viewDidUnload {
+    [self setProductNameLabel:nil];
+    [self setNavBar:nil];
+    [self setProductImageView:nil];
+    [self setProductUIImageView:nil];
+    [self setProductPriceLabel:nil];
+    [self setCommentsButtonContainer:nil];
+    [self setMainScroll:nil];
+    [super viewDidUnload];
+}
+
+- (IBAction)goBack {
+    NSLog(@"back");
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)share:(id)sender {
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    CommentsDetailViewController *controller = [segue destinationViewController];
+    [controller setTopic:topic];
+    
+    NSLog(@"ct: %@", controller.topic);
 }
 
 @end

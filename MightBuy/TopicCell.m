@@ -9,6 +9,10 @@
 #import "TopicCell.h"
 
 @implementation TopicCell
+@synthesize title;
+@synthesize price;
+@synthesize image;
+@synthesize imageBackground;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

@@ -2,14 +2,14 @@
 //  User.h
 //  MightBuy
 //
-//  Created by Sam Baumgarten on 9/8/12.
+//  Created by Sam Baumgarten on 10/12/12.
 //  Copyright (c) 2012 Makrr. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Topic;
+@class Comment, Topic;
 
 @interface User : NSManagedObject
 
@@ -18,7 +18,7 @@
 @property (nonatomic, retain) NSString * created_at;
 @property (nonatomic, retain) NSString * current_sign_in_at;
 @property (nonatomic, retain) NSString * current_sign_in_ip;
-@property (nonatomic, retain) NSString * description;
+@property (nonatomic, retain) NSString * description_s;
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * email_address;
 @property (nonatomic, retain) NSString * facebook;
@@ -41,10 +41,16 @@
 @property (nonatomic, retain) NSString * twitter_uid;
 @property (nonatomic, retain) NSString * updated_at;
 @property (nonatomic, retain) NSString * url;
+@property (nonatomic, retain) NSSet *comments;
 @property (nonatomic, retain) NSSet *topics;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
+
+- (void)addCommentsObject:(Comment *)value;
+- (void)removeCommentsObject:(Comment *)value;
+- (void)addComments:(NSSet *)values;
+- (void)removeComments:(NSSet *)values;
 
 - (void)addTopicsObject:(Topic *)value;
 - (void)removeTopicsObject:(Topic *)value;

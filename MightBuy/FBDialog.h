@@ -16,7 +16,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "JSON/JSON.h"
+#import "JSON.h"
 
 @protocol FBDialogDelegate;
 @class FBFrictionlessRequestSettings;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Libraries.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

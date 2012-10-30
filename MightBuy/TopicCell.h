@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Libraries.h"
 
 @interface TopicCell : UITableViewCell
 @property (nonatomic, retain) IBOutlet UILabel *title;
+@property (nonatomic, retain) IBOutlet UILabel *price;
+@property (nonatomic, retain) IBOutlet UIImageView *image;
+@property (nonatomic, retain) IBOutlet UIImageView *imageBackground;
 @end

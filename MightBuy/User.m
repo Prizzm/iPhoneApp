@@ -2,11 +2,12 @@
 //  User.m
 //  MightBuy
 //
-//  Created by Sam Baumgarten on 9/8/12.
+//  Created by Sam Baumgarten on 10/12/12.
 //  Copyright (c) 2012 Makrr. All rights reserved.
 //
 
 #import "User.h"
+#import "Comment.h"
 #import "Topic.h"
 
 
@@ -17,7 +18,7 @@
 @dynamic created_at;
 @dynamic current_sign_in_at;
 @dynamic current_sign_in_ip;
-@dynamic description;
+@dynamic description_s;
 @dynamic email;
 @dynamic email_address;
 @dynamic facebook;
@@ -40,6 +41,7 @@
 @dynamic twitter_uid;
 @dynamic updated_at;
 @dynamic url;
+@dynamic comments;
 @dynamic topics;
 
 @end

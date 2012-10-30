@@ -7,24 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <RestKit/RestKit.h>
-#import <RestKit/JSONKit.h>
-#import <RestKit/CoreData.h>
+#import "Libraries.h"
 
 #import "User.h"
 
+#import "TopicsTableViewController.h"
+#import "ProductDetailViewController.h"
+#import "settingsPopoverViewController.h"
+
 #import "ListHelper.h"
+#import "CoreDataController.h"
+
 #import "TopicCell.h"
 
-@interface ViewController : UIViewController <RKRequestDelegate, UITableViewDataSource>
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@interface ViewController : UIViewController <RKRequestDelegate, UITableViewDataSource, WEPopoverControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (nonatomic, retain) NSString *productTitle;
 
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
+@property (nonatomic, retain) TopicsTableViewController *tvc;
+@property (nonatomic, retain) WEPopoverController *wpopoverController;
+
+-(void)getUserData;
 
 - (IBAction)gotoSettings:(id)sender;
 @end

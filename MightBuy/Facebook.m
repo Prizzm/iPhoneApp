@@ -23,6 +23,7 @@
 #import "JSON.h"
 #import "FBSession+Internal.h"
 #import "FBUtility.h"
+#import "JSON.h"
 
 static NSString* kDialogBaseURL = @"https://m." FB_BASE_URL "/dialog/";
 static NSString* kGraphBaseURL = @"https://graph." FB_BASE_URL "/";

@@ -7,12 +7,14 @@
 //
 
 #import "CommentNavViewController.h"
+#import "ProductDetailViewController.h"
 
 @interface CommentNavViewController ()
 
 @end
 
 @implementation CommentNavViewController
+@synthesize topic;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,8 +27,21 @@
 
 - (void)viewDidLoad
 {
+    self.navigationBar.hidden = YES;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self performSelector:@selector(log) withObject:nil afterDelay:0.01];
+    [super viewDidAppear:animated];
+}
+
+-(void)log {
+    [self setTopic:[(ProductDetailViewController *)[self parentViewController] topic]];
+    [[[self viewControllers] objectAtIndex:0] setTopic:topic];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,6 +53,12 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    CommentsDetailViewController *controller = [segue destinationViewController];
+    [controller setTopic:topic];
+    NSLog(@"seg");
 }
 
 @end

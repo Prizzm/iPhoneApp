@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Libraries.h"
+#import "Topic.h"
+#import "CoreDataController.h"
+#import "ListHelper.h"
+#import "CommentsDetailViewController.h"
 
-@interface CommentNavTableViewViewController : UITableViewController
+@interface CommentNavTableViewViewController : UITableViewController <UITableViewDelegate>
+@property (nonatomic, retain) id senderVc;
+@property (strong, nonatomic) Topic *topic;
 
 @end
