@@ -31,6 +31,8 @@
 		054A7931162917CF00B35CD0 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A7930162917CF00B35CD0 /* Topic.m */; };
 		054A7934162917CF00B35CD0 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A7933162917CF00B35CD0 /* Comment.m */; };
 		0551424F1635D42E00DBA08A /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0551424E1635D42E00DBA08A /* SignUpViewController.m */; };
+		05544EB9164DDC0A0045D4C2 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05544EB8164DDC0A0045D4C2 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		05544EBB164DDC110045D4C2 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05544EBA164DDC110045D4C2 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0554B56E16398FB100087D9E /* EmailLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0554B56D16398FB100087D9E /* EmailLoginViewController.m */; };
 		0564B45416349EAF00807CF1 /* settingsPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0564B45316349EAE00807CF1 /* settingsPopoverViewController.m */; };
 		0564B45F16349F5800807CF1 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 0564B45716349F5800807CF1 /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -332,6 +334,8 @@
 		054A7933162917CF00B35CD0 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		0551424D1635D42D00DBA08A /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		0551424E1635D42E00DBA08A /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		05544EB8164DDC0A0045D4C2 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		05544EBA164DDC110045D4C2 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		0554B56C16398FB100087D9E /* EmailLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailLoginViewController.h; sourceTree = "<group>"; };
 		0554B56D16398FB100087D9E /* EmailLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailLoginViewController.m; sourceTree = "<group>"; };
 		0564B45216349EAE00807CF1 /* settingsPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsPopoverViewController.h; sourceTree = "<group>"; };
@@ -622,6 +626,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05544EBB164DDC110045D4C2 /* AdSupport.framework in Frameworks */,
+				05544EB9164DDC0A0045D4C2 /* Accounts.framework in Frameworks */,
 				05C40EA416167D75001ED091 /* MessageUI.framework in Frameworks */,
 				05B9A76515FA7C97001B59FA /* Security.framework in Frameworks */,
 				05B9A76915FA7CA3001B59FA /* SystemConfiguration.framework in Frameworks */,
@@ -1046,6 +1052,8 @@
 		05B9A71C15FA7BD7001B59FA = {
 			isa = PBXGroup;
 			children = (
+				05544EBA164DDC110045D4C2 /* AdSupport.framework */,
+				05544EB8164DDC0A0045D4C2 /* Accounts.framework */,
 				0516CD9F16168F2400C6FF32 /* Icon@2x.png */,
 				0516CD9D16168F0800C6FF32 /* Icon.png */,
 				0516CD9B16168EC600C6FF32 /* Default-568h@2x.png */,
